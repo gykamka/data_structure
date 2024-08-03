@@ -1,15 +1,12 @@
 # index 两两比较，谁大谁往后交换，最后一个就是最大的，然后再交换，确定倒数第二大的
 # 从后往前确定，每次交换的越来越短
+# 每次都从第一个开始比较，交换
 
 def bubble_sort(arr):
     for n in range(len(arr)-1):
-    # 第一次是在0～N-1之间进行比较（下面有个i和i+1比，所以先只考虑这个）
-    # 第二次在0～N-2之间，N就是长度，所以要len-1
         for i in range(len(arr)-n-1):
-            # 这里需要和后一个数比较，有个+1，所以上面要再-1
             if arr[i]>arr[i+1]:
-                arr[i],arr[i+1] =arr[i+1],arr[i]
-    
+                arr[i],arr[i+1]=arr[i],arr[i+1]
     return arr
 
 import unittest
@@ -43,3 +40,11 @@ class TestBubbleSort(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+    #for n in range(len(arr)-1):
+    # 第一次是在0～N-1之间进行比较（下面有个i和i+1比，所以先只考虑这个）
+    # 第二次在0～N-2之间，N就是长度，所以要len-1
+        #for i in range(len(arr)-n-1):
+            # 这里需要和后一个数比较，有个+1，所以上面要再-1
+           # if arr[i]>arr[i+1]:
+            #    arr[i],arr[i+1] =arr[i+1],arr[i]

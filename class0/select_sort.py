@@ -2,14 +2,13 @@
 #         放到第一个（再从第二个开始）
 def selection_sort(arr):
     for i in range(len(arr)):
-        min_idx = i
+        min_idx=i   #指针，不能没有，i是第一个，指针找后面的最小，然后指针和i换
         for j in range(i+1,len(arr)):
             if arr[min_idx]>arr[j]:
-                min_idx=j
-        arr[min_idx],arr[i]=arr[i],arr[min_idx]
+                min_idx = j
+        arr[min_idx],arr[i] = arr[i],arr[min_idx]
     return arr
 
-            
                 
 
 import unittest
@@ -41,5 +40,5 @@ class TestSelectionSort(unittest.TestCase):
         large_random_list = [99, 23, 4, 1, 8, 7, 0, 98, 45, 67, 56, 89, 12, 34, 76, 43, 21, 88, 9, 11]
         self.assertEqual(selection_sort(large_random_list), sorted(large_random_list))
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()

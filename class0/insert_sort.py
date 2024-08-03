@@ -1,9 +1,15 @@
+# 后一个比前一个小就换位置，直到换到最小或者index=0
+# 如果写range（1,len(arr))下面的while条件不能写i-1！=0，
+# 写了i=1时就没办法跑进去了,但是可以写i>0就对了
+# 从0开始还是从1开始条件都是一样的😂
+
 def insert_sort(arr):
     for i in range(len(arr)):
-        
-        while arr[i-1]>arr[i]:
+        while arr[i-1]>arr[i] and i>0:
             arr[i-1],arr[i]=arr[i],arr[i-1]
-            i -= 1
+            i-=1
+        
+    return arr
 
 
 import unittest
@@ -37,3 +43,9 @@ class TestInsertSort(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+    #for i in range(len(arr)):
+
+        #while arr[i-1]>arr[i] and i!=0:
+            #arr[i-1],arr[i]=arr[i],arr[i-1]
+            #i -= 1
